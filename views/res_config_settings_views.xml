@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    Helpdesk ticket Settings details-->
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.odoo.website.helpdesk
+        </field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="15"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+            <app string="Helpdesk" name="helpdesk_ticket">
+                <block title="General">
+                    <setting string="Create tasks from tickets"
+                             help="Create tasks from tickets">
+                        <field name="show_create_task"/>
+                    </setting>
+                </block>
+                <block title="Ticket Settings"
+                       groups="odoo_website_helpdesk.helpdesk_manager">
+                    <setting string="Category" help="Categorize the Tickets">
+                        <field name="show_category"/>
+                    </setting>
+                    <setting string="Create Ticket From Website"
+                             help="Create Ticket From Website">
+                        <field name="helpdesk_menu_show"/>
+                    </setting>
+                    <setting string="Choose Products on Website Form"
+                             help="Choose Products on Website Form">
+                        <field name="product_website"/>
+                    </setting>
+                    <setting string="Automatically Close Ticket"
+                             help="Automatically Close Ticket">
+                        <field name="auto_close_ticket"/>
+                        <div class="content-group" invisible="not auto_close_ticket">
+                            <label for="no_of_days"/>
+                            <field name="no_of_days"/>
+                        </div>
+                    </setting>
+                </block>
+                <block title="Stages">
+                    <setting string="Close Stage" help="Set The Closing stage">
+                        <field name="closed_stage"/>
+                    </setting>
+                    <setting string="Reply Template"
+                             help="Set a Default Reply Template">
+                        <field name="reply_template_id"/>
+                    </setting>
+                </block>
+            </app>
+            </xpath>
+        </field>
+    </record>
+<!--    Res config settings view action-->
+    <record id="helpdesk_config_settings_action"
+                model="ir.actions.act_window">
+            <field name="name">Helpdesk Ticket</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">current</field>
+            <field name="context">{'module': 'helpdesk_ticket'}</field>
+        </record>
+</odoo>
