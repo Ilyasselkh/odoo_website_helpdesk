@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    Ticket types-->
+    <record id="helpdesk_types_incident" model="helpdesk.types">
+        <field name="name">Incident</field>
+    </record>
+    <record id="helpdesk_types_request" model="helpdesk.types">
+        <field name="name">Request</field>
+    </record>
+    
+    <record id="helpdesk_categories_sap" model="helpdesk.categories">
+        <field name="name">SAP/FIORI</field>
+    </record>
+    <record id="helpdesk_categories_it" model="helpdesk.categories">
+        <field name="name">IT</field>
+    </record>
+    <record id="helpdesk_categories_douane" model="helpdesk.categories">
+        <field name="name">Systeme Douane</field>
+    </record>
+    <record id="helpdesk_categories_inventaire" model="helpdesk.categories">
+        <field name="name">Systeme Inventaire</field>
+    </record>
+    <record id="helpdesk_categories_amelioration" model="helpdesk.categories">
+        <field name="name">Amélioration</field>
+    </record>
+    <record id="helpdesk_categories_autre" model="helpdesk.categories">
+        <field name="name">Autre</field>
+    </record>
+</odoo>
